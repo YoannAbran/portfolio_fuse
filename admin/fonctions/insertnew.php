@@ -6,9 +6,9 @@ include '../include/config.php';
 //creation nouvel article/projet
 if(!empty($_POST['titre'])&& !empty($_POST['description'])&& !empty($_POST['gallery'])){
 
-$titre = $_POST['titre'];
-$description = $_POST['description'];
-$gallery = $_POST['gallery'];
+$titre = htmlspecialchars($_POST['titre']);
+$description = htmlspecialchars($_POST['description']);
+$gallery = htmlspecialchars($_POST['gallery']);
 
 try{
   if(isset($_POST['titre'])){

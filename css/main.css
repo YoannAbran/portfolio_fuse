@@ -116,8 +116,8 @@ border-radius: 25px;
   border-radius: 25px;
 }
 .bgcard{
-  background: rgb(235,235,235,0.5);
-  background: radial-gradient(circle, rgba(235,235,235,0.5) 12%, rgba(179,179,179,0.5) 55%, rgba(23,23,23,0.5) 89%);
+  background: rgb(235,235,235,0.9);
+  background: linear-gradient(180deg, rgba(235,235,235,0.9) 12%, rgba(179,179,179,0.9) 55%, rgba(23,23,23,0.9) 89%);
 }
 .btn{
   background-color: #F1C844;
