@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "MajorMonoDisplay";
+  src: url("../fonts/MajorMonoDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-regular";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-family: "Roboto-black";
+  src: url("../fonts/Roboto-Black.ttf") format("truetype");
+}
+body{
+  font-family: "Roboto-black";
+}
+
+#logo{
+  font-family: "MajorMonoDisplay";
+  font-weight: bolder;
+  font-size: 80px;
+  letter-spacing: -18px;
+}
+.navbar{
+  font-size: 20px;
+}
+.dropdown-menu{
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+}
+.dropdown-item{
+  background: none;
+  margin: 0;
+  padding: 0;
+
+}
+#transidownwhite{
+  height: 10px;
+  background: rgb(23,23,23);
+background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, rgba(250,248,248,1) 100%);
+}
+#transiupwhite{
+  height: 10px;
+  background: rgb(23,23,23);
+  background: linear-gradient(180deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, rgba(250,248,248,1) 100%);
+}
+#transidownblack{
+  height: 10px;
+  background: rgb(23,23,23);
+  background: linear-gradient(180deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, rgba(250,248,248,1) 100%);
+}
+#transiupblack{
+  height: 10px;
+  background: rgb(23,23,23);
+background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, rgba(250,248,248,1) 100%);
+}
+
+#headblack{
+  background-image: url(../img/BGblack.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 25vh;
+  max-height: 100%;
+}
+#headwhite{
+  background-image: url(../img/BGwhite.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 25vh;
+  max-height: 100%;
+}
+#footerblack{
+  background-image: url(../img/BGblack.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 15vh;
+  max-height: 100%;
+}
+#footerwhite{
+  background-image: url(../img/BGwhite.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 15vh;
+  max-height: 100%;
+}
+.bodywhite{
+  background-image: url(../img/BGwhite.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 60vh;
+  max-height: 100%;
+}
+.bodyblack{
+  background-image: url(../img/BGblack.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 60vh;
+  max-height: 100%;
+}
+.bgabout{
+margin: 20px 0;
+background: rgb(250,250,250,0.5);
+background: radial-gradient(circle, rgba(250,250,250,0.9) 12%, rgba(200,200,200,0.9) 55%, rgba(23,23,23,0.5) 89%);
+border-radius: 25px;
+}
+#bgcontact{
+  margin: 20px 0;
+  background: rgb(235,235,235,0.5);
+  background: radial-gradient(circle, rgba(235,235,235,0.5) 12%, rgba(179,179,179,0.5) 55%, rgba(23,23,23,0.5) 89%);
+  border-radius: 25px;
+}
+.bgcard{
+  background: rgb(235,235,235,0.5);
+  background: radial-gradient(circle, rgba(235,235,235,0.5) 12%, rgba(179,179,179,0.5) 55%, rgba(23,23,23,0.5) 89%);
+}
+.btn{
+  background-color: #F1C844;
+}
+#logoa{
+  color: #D4AF37;
+}
+.gold{
+  color: #D4AF37;
+}
