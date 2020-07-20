@@ -128,3 +128,7 @@ border-radius: 25px;
 .gold{
   color: #D4AF37;
 }
+#photo img{
+  height:120px;
+  width: 160px;
+}

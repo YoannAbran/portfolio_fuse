@@ -17,9 +17,9 @@ $stmt->execute();
   echo "Connection failed: " . $e->getMessage();1
 }
 }
-$sql = "SELECT photo, description, coordonnee FROM about ";
-    foreach ($conn -> query($sql) as $row) {
-}
+$sql = $conn->prepare("SELECT photo, description, coordonnee FROM about ");
+$sql->execute();
+$row = $sql->fetch();
 ?>
 <div class="bodyblack justify-content-center text-light">
   <div class="d-flex justify-content-center ">

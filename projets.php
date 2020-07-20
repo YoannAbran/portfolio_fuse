@@ -3,8 +3,9 @@ include "include/header.php";
 include "include/headwhite.php";
 include "include/config.php";
 
-$sql = "SELECT id_projet, titre, gallery FROM projet ";
-foreach ($conn -> query($sql) as $row) {}
+$sql = $conn->prepare("SELECT id_projet, titre, gallery FROM projet ");
+$sql->execute();
+$row = $sql->fetch()
 ?>
 
 <div class="bodyblack containeur-fluid d-flex flex-column align-items-center">
@@ -26,7 +27,7 @@ foreach ($conn -> query($sql) as $row) {}
 <div class=" container card-deck  row-cols-1 row-cols-sm-2  row-cols-md-3 row-cols-lg-4 " >
 
 
-<?php  foreach ($conn -> query($sql) as $row) {
+<?php  foreach ($sql as $row){
 	$gallery = $row['gallery'];
 	$pattern = '$src="([^"]+)$';
 	preg_match($pattern,$gallery,$matches);
@@ -37,8 +38,8 @@ echo "	<div class='col mb-4'>";
 echo "<div class='card shadow-sm bgcard text-dark' >";
 	echo "<img src='".htmlspecialchars($gallery)."' class='card-img-top' alt='...'>";
 	echo "<div class='card-body d-flex flex-column justify-content-between'>";
-		echo "<h5 class='card-title'>".htmlspecialchars($row['titre'])."</h5>";
-		echo "<a href='projet.php?id=".htmlspecialchars($row['id_projet'])."' class='btn'>GO !!</a>";
+		echo "<h5 class='card-title'>".$row['titre']."</h5>";
+		echo "<a href='projet.php?id=".$row['id_projet']."' class='btn'>GO !!</a>";
 
 	echo "</div>
 </div>

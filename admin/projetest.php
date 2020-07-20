@@ -20,9 +20,9 @@ $stmt->execute();
   echo "Connection failed: " . $e->getMessage();
 }
 }
-$sql = "SELECT titre, description, gallery FROM projet WHERE id_projet= $id ";
-    foreach ($conn -> query($sql) as $row) {
-}
+$sql = $conn->prepare("SELECT titre, description, gallery FROM projet WHERE id_projet= $id ");
+$sql->execute();
+$row = $sql->fetch();
 
 ?>
 
@@ -37,7 +37,7 @@ $sql = "SELECT titre, description, gallery FROM projet WHERE id_projet= $id ";
 
     <textarea name="descredit" id="descredit" contenteditable="true" ><?php echo htmlspecialchars($row['description']) ?></textarea>
 
-    <textarea name="galleryedit" id="galleryedit" contenteditable="true" ><?php echo htmlspecialchars($row['gallery']) ?></textarea>
+    <textarea name="galleryedit" id="galleryedit" contenteditable="true" ><?php echo $row['gallery'] ?></textarea>
 
       <input class="btn" type="submit" value="Submit">
       </form>
