@@ -7,9 +7,9 @@
 $id = $_GET['id'];
 
 if (isset($_POST['titreedit'])&& isset($_POST['descredit']) && isset($_POST['galleryedit'])) {
-  $titredit = htmlspecialchars($_POST['titreedit']);
-  $descredit = htmlspecialchars($_POST['descredit']);
-  $galleryedit = htmlspecialchars($_POST['galleryedit']);
+  $titredit = $_POST['titreedit'];
+  $descredit = $_POST['descredit'];
+  $galleryedit = $_POST['galleryedit'];
 try {
 $stmt = $conn->prepare("UPDATE projet SET titre = :titre, description = :desription, gallery = :gallery WHERE id_projet= $id ");
 $stmt->bindParam(':titre',$titredit);
@@ -33,11 +33,11 @@ $sql = "SELECT titre, description, gallery FROM projet WHERE id_projet= $id ";
   <div class="container d-flex justify-content-center">
     <div class=" container d-flex justify-content-center bgabout">
     <form name="formedit" action ="" class="p-5 text-center text-dark" method="post" id="formedit">
-    <textarea name="titreedit" id="titreedit" contenteditable="true" ><?php echo htmlspecialchars_decode ($row['titre']) ?></textarea>
+    <textarea name="titreedit" id="titreedit" contenteditable="true" ><?php echo htmlspecialchars($row['titre']) ?></textarea>
 
-    <textarea name="descredit" id="descredit" contenteditable="true" ><?php echo htmlspecialchars_decode ($row['description']) ?></textarea>
+    <textarea name="descredit" id="descredit" contenteditable="true" ><?php echo htmlspecialchars($row['description']) ?></textarea>
 
-    <textarea name="galleryedit" id="galleryedit" contenteditable="true" ><?php echo htmlspecialchars_decode ($row['gallery']) ?></textarea>
+    <textarea name="galleryedit" id="galleryedit" contenteditable="true" ><?php echo htmlspecialchars($row['gallery']) ?></textarea>
 
       <input class="btn" type="submit" value="Submit">
       </form>

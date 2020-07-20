@@ -20,8 +20,8 @@
 
         <?php  foreach ($conn -> query($sql) as $row) {
 
-        echo "<tr><td class='px-5'><a class='text-light' href='projetest.php?id=".$row['id_projet']."'>".htmlspecialchars_decode ($row['titre'])."</a></td>";
-        echo "<td>".htmlspecialchars_decode ($row['description'])."</td>";
+        echo "<tr><td class='px-5'><a class='text-light' href='projetest.php?id=".$row['id_projet']."'>".htmlspecialchars($row['titre'])."</a></td>";
+        echo "<td>".htmlspecialchars($row['description'])."</td>";
         echo"<td><form action ='fonctions/delete.php?idel=".$row['id_projet']."' method='post' onsubmit='return submitResult();'><input type='submit' value='Supprimer'></form></td></tr>";
           } ?>
 

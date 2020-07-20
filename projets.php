@@ -27,13 +27,18 @@ foreach ($conn -> query($sql) as $row) {}
 
 
 <?php  foreach ($conn -> query($sql) as $row) {
+	$gallery = $row['gallery'];
+	$pattern = '$src="([^"]+)$';
+	preg_match($pattern,$gallery,$matches);
+	$gallery = $matches[1];
+
 
 echo "	<div class='col mb-4'>";
 echo "<div class='card shadow-sm bgcard text-dark' >";
-	echo "<img src='img/laptop.jpg' class='card-img-top' alt='...'>";
+	echo "<img src='".htmlspecialchars($gallery)."' class='card-img-top' alt='...'>";
 	echo "<div class='card-body d-flex flex-column justify-content-between'>";
-		echo "<h5 class='card-title'>".htmlspecialchars_decode ($row['titre'])."</h5>";
-		echo "<a href='projet.php?id=".htmlspecialchars_decode ($row['id_projet'])."' class='btn'>GO !!</a>";
+		echo "<h5 class='card-title'>".htmlspecialchars($row['titre'])."</h5>";
+		echo "<a href='projet.php?id=".htmlspecialchars($row['id_projet'])."' class='btn'>GO !!</a>";
 
 	echo "</div>
 </div>

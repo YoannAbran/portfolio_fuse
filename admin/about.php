@@ -4,9 +4,9 @@
   include "admin.php";
 
 if (isset($_POST['photoedit'])&& isset($_POST['descriptionedit']) && isset($_POST['coordedit'])) {
-  $photoedit = htmlspecialchars($_POST['photoedit']);
-  $descriptionedit = htmlspecialchars($_POST['descriptionedit']);
-  $coordedit = htmlspecialchars($_POST['coordedit']);
+  $photoedit = $_POST['photoedit'];
+  $descriptionedit = $_POST['descriptionedit'];
+  $coordedit = $_POST['coordedit'];
 try {
 $stmt = $conn->prepare("UPDATE about SET photo = :photo, description = :desription, coordonnee = :coordonnee");
 $stmt->bindParam(':photo',$photoedit);
@@ -14,7 +14,7 @@ $stmt->bindParam(':desription',$descriptionedit);
 $stmt->bindParam(':coordonnee',$coordedit);
 $stmt->execute();
 } catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+  echo "Connection failed: " . $e->getMessage();1
 }
 }
 $sql = "SELECT photo, description, coordonnee FROM about ";
@@ -28,11 +28,11 @@ $sql = "SELECT photo, description, coordonnee FROM about ";
 
 <form id="aboutedit" class="text-center text-dark" action="" method="post">
 
-  <textarea class="" name="photoedit" contenteditable="true"><?php echo htmlspecialchars_decode ($row['photo']) ?></textarea>
+  <textarea class="" name="photoedit" contenteditable="true"><?php echo htmlspecialchars($row['photo']) ?></textarea>
 
-  <textarea class="" name="descriptionedit" contenteditable="true"><?php htmlspecialchars_decode (echo $row['description']) ?></textarea>
+  <textarea class="" name="descriptionedit" contenteditable="true"><?php echo  htmlspecialchars($row['description']) ?></textarea>
 
-  <textarea name="coordedit" class = "" contenteditable="true"><?php echo htmlspecialchars_decode ($row['coordonnee']) ?></textarea>
+  <textarea name="coordedit" class = "" contenteditable="true"><?php echo htmlspecialchars($row['coordonnee']) ?></textarea>
 
   <input class="btn" type="submit" value="Submit" >
 </form>
