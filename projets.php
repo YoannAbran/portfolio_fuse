@@ -1,11 +1,19 @@
 <?php
-include "include/header.php";
 include "include/headwhite.php";
 include "include/config.php";
 
-$sql = $conn->prepare("SELECT id_projet, titre, gallery FROM projet ");
+try {
+$sql = $conn->prepare("SELECT projet.titre, projet.description, projet.id_projet, images.id_image, images.image, images.idprojet
+                        FROM projet
+                        INNER JOIN images ON projet.id_projet = images.idprojet
+                      ");
 $sql->execute();
-$row = $sql->fetch()
+$rows = $sql->fetchAll();
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+foreach ($rows as $row) {
+}
 ?>
 
 <div class="bodyblack containeur-fluid d-flex flex-column align-items-center">
@@ -27,16 +35,11 @@ $row = $sql->fetch()
 <div class=" container card-deck  row-cols-1 row-cols-sm-2  row-cols-md-3 row-cols-lg-4 " >
 
 
-<?php  foreach ($sql as $row){
-	$gallery = $row['gallery'];
-	$pattern = '$src="([^"]+)$';
-	preg_match($pattern,$gallery,$matches);
-	$gallery = $matches[1];
-
+<?php  foreach ($rows as $row){
 
 echo "	<div class='col mb-4'>";
 echo "<div class='card shadow-sm bgcard text-dark' >";
-	echo "<img src='".htmlspecialchars($gallery)."' class='card-img-top' alt='...'>";
+	echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
 	echo "<div class='card-body d-flex flex-column justify-content-between'>";
 		echo "<h5 class='card-title'>".$row['titre']."</h5>";
 		echo "<a href='projet.php?id=".$row['id_projet']."' class='btn'>GO !!</a>";
@@ -54,7 +57,4 @@ echo "<div class='card shadow-sm bgcard text-dark' >";
 
 <?php
 include "include/footerwhite.php";
-include "include/footer.php";
-
-
- ?>
+?>

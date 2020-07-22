@@ -13,7 +13,7 @@ $row = $sql->fetch();
   <div class="d-flex justify-content-center">
     <div id="bgabout"class="container d-flex row">
       <div class="container d-flex flex-column align-items-center p-4 col-lg-6 col-xs">
-        <div id='photo' class="p-4"><?php echo $row['photo'] ?></div>
+        <div id='photo' class="p-4"><img src="<?php echo $row['photo'] ?>" alt=""></div>
           <p class="p-4 text-justify"><?php echo $row['description'] ?></p>
         </div>
       </div>

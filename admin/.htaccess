@@ -1,0 +1,3 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^projetest-([0-9]+).html$   /test_portfolio/projetest.php?id=$1

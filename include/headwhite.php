@@ -1,3 +1,4 @@
+<?php include "include/header.php"; ?>
 <header id="headwhite" class="d-flex justify-content-between">
 <div class=" container d-flex justify-content-between">
 
@@ -27,7 +28,7 @@
        </div>
      </li>
      <li class="nav-item">
-        <a class="nav-link text-dark" href="about.php">À propos de moi</a>
+        <a class="nav-link text-dark" href="about.php">Moi</a>
      </li>
      <li class="nav-item">
         <a class="nav-link text-dark" href="contact.php">Contact</a>

@@ -1,6 +1,4 @@
 <?php
-
-include "include/header.php";
 include "include/headblack.php";
 ?>
 <div class="bodywhite container-fluid d-flex align-items-center justify-content-center " >
@@ -43,7 +41,4 @@ include "include/headblack.php";
 
 <?php
 include "include/footerblack.php";
-include "include/footer.php";
-
-
- ?>
+?>

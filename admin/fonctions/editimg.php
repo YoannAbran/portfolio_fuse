@@ -1,22 +1,11 @@
 <?php
-include '../include/config.php';
+include "../include/config.php";
 
+$id = $_GET['id'];
 
+if(isset($_POST['editimg'])){
 
-if(isset($_POST['submit'])){
-
-  extract($_POST);
-
-
-    $sql = $conn->prepare( "INSERT INTO projet (titre,description) VALUES (:titre,:description)");
-    $sql->execute(array(
-                ':titre' => $titre,
-                ':description' => $description,
-              ));
-
-  $last_id = $conn->lastInsertId();
-
-  $countfiles = count($_FILES['files']['name']);
+  $countfiles = count($_FILES['images']['name']);
    // Prepared statement
    $query = "INSERT INTO images (name,image,idprojet) VALUES(?,?,?)";
 
@@ -27,7 +16,7 @@ if(isset($_POST['submit'])){
    for($i=0;$i<$countfiles;$i++){
 
      // File name
-     $filename = $_FILES['files']['name'][$i];
+     $filename = $_FILES['images']['name'][$i];
 
      // Location
      $target_file = 'img/'.$filename;
@@ -42,17 +31,16 @@ if(isset($_POST['submit'])){
      if(in_array($file_extension, $valid_extension)){
 
         // Upload file
-        if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
+        if(move_uploaded_file($_FILES['images']['tmp_name'][$i],$target_file)){
 
            // Execute query
- 	  $statement->execute(array($filename,$target_file,$last_id));
+ 	  $statement->execute(array($filename,$target_file,$id));
 
         }
      }
 
    }
    echo "File upload successfully";
+   header('Location: ../projetest-'.$id.'.html');
+   exit;
  }
- header("Location: ../projetest.php?id=".$last_id );
- exit;
-?>

@@ -1,4 +1,4 @@
-
+<?php include "include/header.php"; ?>
 
  <header id="headblack" class="container-fluid ">
 
@@ -32,10 +32,10 @@
         </div>
       </li>
       <li class="nav-item">
-          <a class="nav-link text-light" href="about.php">À propos de moi</a>
+          <a class="nav-link text-light" href="about.php">Moi</a>
       </li>
       <li class="nav-item">
-         <a class="nav-link text-dark" href="contact.php">Contact</a>
+         <a class="nav-link text-light" href="contact.php">Contact</a>
       </li>
       <li class="nav-item">
           <a class="nav-link text-light" href="#">Article</a>

@@ -16,3 +16,4 @@
 <p class="align-self-end ">crédits background blanc : <a class="text-dark" href="http://www.freepik.com">Designed by Freepik</a></p>
 </div>
   </div>
+<?php include "include/footer.php"; ?>
