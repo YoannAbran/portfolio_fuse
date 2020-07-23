@@ -9,7 +9,7 @@ try {
   $del = $conn-> prepare("DELETE FROM images WHERE id_image = $idimg");
   $del->execute();
   echo "Record deleted successfully";
-  header('Location: ../projetest-'.$id.'.html');
+  header('Location: ../projetest.php?id='.$id.'.html');
   exit;
 }
   catch(PDOException $e) {

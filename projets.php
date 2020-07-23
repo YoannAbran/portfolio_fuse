@@ -2,16 +2,20 @@
 include "include/headwhite.php";
 include "include/config.php";
 
+
 try {
 $sql = $conn->prepare("SELECT projet.titre, projet.description, projet.id_projet, images.id_image, images.image, images.idprojet
                         FROM projet
-                        INNER JOIN images ON projet.id_projet = images.idprojet
+                        LEFT JOIN images ON projet.id_projet = images.idprojet
+                        GROUP BY projet.id_projet
                       ");
 $sql->execute();
 $rows = $sql->fetchAll();
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
+
+
 foreach ($rows as $row) {
 }
 ?>
@@ -35,19 +39,55 @@ foreach ($rows as $row) {
 <div class=" container card-deck  row-cols-1 row-cols-sm-2  row-cols-md-3 row-cols-lg-4 " >
 
 
-<?php  foreach ($rows as $row){
+<?php
 
-echo "	<div class='col mb-4'>";
-echo "<div class='card shadow-sm bgcard text-dark' >";
-	echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
-	echo "<div class='card-body d-flex flex-column justify-content-between'>";
-		echo "<h5 class='card-title'>".$row['titre']."</h5>";
-		echo "<a href='projet.php?id=".$row['id_projet']."' class='btn'>GO !!</a>";
 
-	echo "</div>
-</div>
-</div>";
-	} ?>
+
+//   foreach ($texts as $text){
+//
+//   echo "	<div class='col mb-4'>";
+//   echo "<div class='card shadow-sm bgcard text-dark' >";
+//   	// echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
+//   	echo "<div class='card-body d-flex flex-column justify-content-between'>";
+//   		echo "<h5 class='card-title'>".$text['titre']."</h5>";
+//   		echo "<a href='projet.php?id=".$text['id_projet']."' class='btn'>GO !!</a>";
+//
+//   	echo "</div>
+//   </div>
+//   </div>";
+// }
+
+  foreach ($rows as $row){
+if (!empty($row['image'])){
+
+  echo "	<div class='col mb-4'>";
+  echo "<div class='card shadow-sm bgcard text-dark' >";
+  	echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
+  	echo "<div class='card-body d-flex flex-column justify-content-between'>";
+  		echo "<h5 class='card-title'>".$row['titre']."</h5>";
+  		echo "<a href='projet.php?id=".$row['id_projet']."' class='btn'>GO !!</a>";
+
+  	echo "</div>
+  </div>
+  </div>";
+
+}
+
+else{
+
+  echo "	<div class='col mb-4'>";
+  echo "<div class='card shadow-sm bgcard text-dark' >";
+    echo "<img src='img/projet.jpg' class='card-img-top' alt='...'>";
+    echo "<div class='card-body d-flex flex-column justify-content-between'>";
+      echo "<h5 class='card-title'>".$row['titre']."</h5>";
+      echo "<a href='projet.php?id=".$row['id_projet']."' class='btn'>GO !!</a>";
+
+    echo "</div>
+  </div>
+  </div>";
+}
+}
+	 ?>
 
 
 </div>

@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
      if(in_array($file_extension, $valid_extension)){
 
         // Upload file
-        if(move_uploaded_file($_FILES['files']['tmp_name'][$i],$target_file)){
+        if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'../../'.$target_file)){
 
            // Execute query
  	  $statement->execute(array($filename,$target_file,$last_id));

@@ -1,10 +1,9 @@
 <?php
   include "include/headwhiteadmin.php";
   include "fonctions/edit.php";
-?>
-<?php
-foreach ($row as $rowedit) {
-}
+
+
+
 
 ?>
 
@@ -16,10 +15,10 @@ foreach ($row as $rowedit) {
 
     <form  action ="" class="p-5 text-center text-dark" method="post" id="formedit">
       <div class="p-2">
-        <input type="text" name="titreedit" value="<?php echo htmlspecialchars($rowedit['titre']) ?>" size="50">
+        <input type="text" name="titreedit" value="<?php echo htmlspecialchars($text['titre']) ?>" size="50">
       </div>
       <div class="p-2">
-        <textarea name="descredit" id="descredit" rows="8" cols="100" ><?php echo  htmlspecialchars($rowedit['description']) ?></textarea>
+        <textarea name="descredit" id="descredit" rows="8" cols="100" ><?php echo  htmlspecialchars($text['description']) ?></textarea>
       </div>
       <div class="p-2">
         <input class="btn" type="submit" value="Submit">
@@ -27,14 +26,15 @@ foreach ($row as $rowedit) {
         </form>
 
       <div class="d-flex row">
-<div><?php echo nl2br(htmlspecialchars($rowedit['description']))?></div>
+
 <?php
 
-foreach ($row as $rowimg) {
+foreach ($imgs as $img) {
+
 
   echo"<div class='form-check d-flex flex-column align-items-center col-3'>
-  <img class='py-3 col' src='".$rowimg['image']."' alt=''>
-  <form action ='fonctions/editdelete.php?imgdel=".$rowimg['id_image']."&id=".$id."' method='post' name='delimg' onsubmit='return submitResult();'><input type='submit' value='Supprimer' name='delimg'></form>
+  <img class='py-3 col' src='../".$img['image']."' alt=''>
+  <form action ='fonctions/editdelete.php?imgdel=".$img['id_image']."&id=".$id."' method='post' name='delimg' onsubmit='return submitResult();'><input type='submit' value='Supprimer' name='delimg'></form>
 
 </div>";
 

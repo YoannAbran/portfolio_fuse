@@ -1,8 +1,6 @@
 <?php
 include "include/config.php";
 
-
-include "config.php";
 if (!isset($_POST["nom"]) && !isset($_POST["email"]) && !isset($_POST["message"])){
 
 }

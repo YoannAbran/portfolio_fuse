@@ -31,7 +31,7 @@ if(isset($_POST['editimg'])){
      if(in_array($file_extension, $valid_extension)){
 
         // Upload file
-        if(move_uploaded_file($_FILES['images']['tmp_name'][$i],$target_file)){
+        if(move_uploaded_file($_FILES['images']['tmp_name'][$i],'../../'.$target_file)){
 
            // Execute query
  	  $statement->execute(array($filename,$target_file,$id));
@@ -41,6 +41,6 @@ if(isset($_POST['editimg'])){
 
    }
    echo "File upload successfully";
-   header('Location: ../projetest-'.$id.'.html');
+   header('Location: ../projetest.php?id='.$id.'');
    exit;
  }

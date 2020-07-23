@@ -23,7 +23,12 @@ foreach ($row as $rowedit) {
     <?php echo  $rowedit['description']?>
   </div>
     <div class="container d-flex flex-row">
-      <?php echo $rowedit['image']?>
+
+      <?php
+      foreach ($row as $rowedit) {
+
+    echo "<img src='".$rowedit['image']."' alt=''>";
+}?>
     </div>
   </div>
 </div>
