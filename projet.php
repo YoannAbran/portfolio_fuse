@@ -6,8 +6,8 @@ $id = $_GET['id'];
 try {
 $sql = $conn->prepare("SELECT projet.titre, projet.description, images.id_image, images.image, images.idprojet
                         FROM projet
-                        INNER JOIN images ON projet.id_projet = images.idprojet
-                        WHERE projet.id_projet= $id AND images.idprojet = $id ");
+                        LEFT JOIN images ON projet.id_projet = images.idprojet
+                        WHERE projet.id_projet= $id ");
 $sql->execute();
 $row = $sql->fetchAll();
 } catch(PDOException $e) {

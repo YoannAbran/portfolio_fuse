@@ -6,8 +6,8 @@ include "form_valid.php";
 <div class="bodyblack container-fluid">
 
 
-  <div class="container d-flex flex-column align-items-center p-4 col-lg-6 col-xs">
-    <form class="form-row" action="" method="POST">
+  <div class="container d-flex flex-column align-items-center text-light p-4 col-lg-6 col-xs">
+    <form class="form-row d-flex flex-column align-items-center" action="" method="POST">
 
       <div class="p-2">
         <label class="col" for="nom">Nom</label>
