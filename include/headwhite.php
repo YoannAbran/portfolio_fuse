@@ -1,4 +1,11 @@
-<?php include "include/header.php"; ?>
+<?php
+include "include/header.php";
+include "include/config.php";
+$sql = $conn->prepare("SELECT id_projet, titre FROM projet ");
+$sql->execute();
+$rows = $sql->fetchAll()
+
+?>
 <header id="headwhite" class="d-flex justify-content-between">
 <div class=" container d-flex justify-content-between">
 
@@ -21,10 +28,9 @@
        </a>
        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
          <a class="dropdown-item" href="projets.php">Accueil Projets</a>
-         <a class="dropdown-item" href="int-barmy.php">Intégration Barmy</a>
-         <a class="dropdown-item" href="int-bislite.php">Intégration Bislite</a>
-         <a class="dropdown-item" href="explofichier.php">Explorateur de fichier</a>
-         <a class="dropdown-item" href="pokebomb.php">Pokébomb</a>
+         <?php foreach ($rows as $row){
+           echo "<a class='dropdown-item' href='projet-".$row['id_projet'].".html'>".$row['titre']."</a>";
+         } ?>
        </div>
      </li>
      <li class="nav-item">

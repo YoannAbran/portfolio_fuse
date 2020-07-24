@@ -41,22 +41,6 @@ foreach ($rows as $row) {
 
 <?php
 
-
-
-//   foreach ($texts as $text){
-//
-//   echo "	<div class='col mb-4'>";
-//   echo "<div class='card shadow-sm bgcard text-dark' >";
-//   	// echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
-//   	echo "<div class='card-body d-flex flex-column justify-content-between'>";
-//   		echo "<h5 class='card-title'>".$text['titre']."</h5>";
-//   		echo "<a href='projet.php?id=".$text['id_projet']."' class='btn'>GO !!</a>";
-//
-//   	echo "</div>
-//   </div>
-//   </div>";
-// }
-
   foreach ($rows as $row){
 if (!empty($row['image'])){
 
@@ -65,7 +49,7 @@ if (!empty($row['image'])){
   	echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
   	echo "<div class='card-body d-flex flex-column justify-content-between'>";
   		echo "<h5 class='card-title'>".$row['titre']."</h5>";
-  		echo "<a href='projet.php?id=".$row['id_projet']."' class='btn'>GO !!</a>";
+  		echo "<a href='projet-".$row['id_projet'].".html' class='btn'>GO !!</a>";
 
   	echo "</div>
   </div>
@@ -80,7 +64,7 @@ else{
     echo "<img src='img/projet.jpg' class='card-img-top' alt='...'>";
     echo "<div class='card-body d-flex flex-column justify-content-between'>";
       echo "<h5 class='card-title'>".$row['titre']."</h5>";
-      echo "<a href='projet.php?id=".$row['id_projet']."' class='btn'>GO !!</a>";
+      echo "<a href='projet-".$row['id_projet'].".html' class='btn'>GO !!</a>";
 
     echo "</div>
   </div>

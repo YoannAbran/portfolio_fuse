@@ -21,7 +21,7 @@
 
       <?php  foreach ($rows as $row){
   // 'projetest.php?id=".$row['id_projet']."'
-      echo "<tr><td class='px-5'><a class='text-light' href='projetest.php?id=".$row['id_projet']."'>".$row['titre']."</a></td>";
+      echo "<tr><td class='px-5'><a class='text-light' href='projetest-".$row['id_projet'].".html'>".$row['titre']."</a></td>";
       echo "<td>".$row['description']."</td>";
       echo"<td><form action ='fonctions/delete.php?idel=".$row['id_projet']."' method='post' onsubmit='return submitResult();'><input type='submit' value='Supprimer'></form></td></tr>";
         } ?>
