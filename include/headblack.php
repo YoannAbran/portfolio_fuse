@@ -30,7 +30,7 @@ $rows = $sql->fetchAll()
                 <a class="dropdown-item text-light" href="projets.php">Accueil Projets</a>
 
                 <?php foreach ($rows as $row){
-                  echo "<a class='dropdown-item' href='projet-".$row['id_projet'].".html'>".$row['titre']."</a>";
+                  echo "<a class='dropdown-item text-light' href='projet-".$row['id_projet'].".html'>".$row['titre']."</a>";
                 } ?>
               </div>
             </li>
