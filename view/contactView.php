@@ -1,8 +1,3 @@
-<?php
-
-include "include/headwhite.php";
-include "form_valid.php";
-?>
 <div class="bodyblack container-fluid">
 
 
@@ -30,6 +25,3 @@ include "form_valid.php";
     </form>
   </div>
 </div>
-<?php
-include "include/footerwhite.php";
-?>

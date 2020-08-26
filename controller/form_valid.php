@@ -1,5 +1,5 @@
 <?php
-include "include/config.php";
+include "../model/model.php";
 
 if (!isset($_POST["nom"]) && !isset($_POST["email"]) && !isset($_POST["message"])){
 

@@ -1,11 +1,3 @@
-<?php
-include "include/header.php";
-include "include/config.php";
-$sql = $conn->prepare("SELECT id_projet, titre FROM projet ");
-$sql->execute();
-$rows = $sql->fetchAll()
-
-?>
 <header id="headwhite" class="d-flex justify-content-between">
 <div class=" container d-flex justify-content-between">
 
@@ -28,7 +20,7 @@ $rows = $sql->fetchAll()
        </a>
        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
          <a class="dropdown-item" href="projets.php">Accueil Projets</a>
-         <?php foreach ($rows as $row){
+         <?php foreach ($dropProject as $row){
            echo "<a class='dropdown-item' href='projet-".$row['id_projet'].".html'>".$row['titre']."</a>";
          } ?>
        </div>
