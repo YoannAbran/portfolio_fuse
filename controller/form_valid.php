@@ -1,8 +1,11 @@
 <?php
-include "../model/model.php";
+
 
 if (!isset($_POST["nom"]) && !isset($_POST["email"]) && !isset($_POST["message"])){
-
+  echo "
+  <div class='alert alert-alert container text-center' role='alert'>
+    Veuillez remplir tous les champs
+  </div>";
 }
 else {
   $nom = valid_donnees($_POST["nom"]);
@@ -29,7 +32,6 @@ $subject = "Message de ".$nom."";
 
                 }
         else {
-          // header('Location : contact.php');
           echo "erreur";
 
         }

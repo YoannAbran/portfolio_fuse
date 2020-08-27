@@ -1,3 +1,6 @@
+<?php $title = 'portfolio'; ?>
+
+<?php ob_start(); ?>
 <div class="bodywhite container-fluid d-flex align-items-center justify-content-center " >
 
 
@@ -10,7 +13,7 @@
     <div class="card-body d-flex flex-column justify-content-between">
       <h5 class=" card-title">Projets</h5>
       <p class=" card-text">Les différents projets que j'ai réalisé, des intégrations de maquette en CSS ou Bootstap en passant par un jeu en javascript...</p>
-      <a href="projets.php" class="btn ">Allez voir les projets</a>
+      <a href="index.php?action=projets" class="btn ">Allez voir les projets</a>
     </div>
   </div>
 
@@ -28,10 +31,12 @@
       <div class=" card-body d-flex flex-column justify-content-between">
         <h5 class="card-title">À propos de moi</h5>
         <p class="card-text">Quelques informations sur moi et mon parcours.</p>
-        <a href="controller/about.php" class="btn ">En apprendre plus sur moi</a>
+        <a href="index.php?action=about" class="btn ">En apprendre plus sur moi</a>
       </div>
     </div>
 
   </div>
 </div>
 </div>
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>

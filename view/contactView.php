@@ -1,3 +1,7 @@
+<?php $title = 'Contact'; ?>
+
+<?php ob_start(); ?>
+
 <div class="bodyblack container-fluid">
 
 
@@ -25,3 +29,5 @@
     </form>
   </div>
 </div>
+<?php $content = ob_get_clean(); ?>
+<?php require('template.php'); ?>

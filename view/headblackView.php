@@ -13,24 +13,24 @@
               <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-light" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Projets
               </a>
 
               <div class="dropdown-menu text-light " aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item text-light" href="projets.php">Accueil Projets</a>
+                <a class="dropdown-item text-light" href="index.php?action=projets">Accueil Projets</a>
 
                 <?php
                 foreach ($dropProject as $row){
-                  echo "<a class='dropdown-item text-light' href='projet-".$row['id_projet'].".html'>".$row['titre']."</a>";
+                  echo "<a class='dropdown-item text-light' href='index.php?action=projet&id=".$row['id_projet']."'>".$row['titre']."</a>";
                 } ?>
               </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="about.php">Moi</a>
+                <a class="nav-link text-light" href="index.php?action=about">Moi</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link text-light" href="contact.php">Contact</a>
+               <a class="nav-link text-light" href="index.php?action=contact">Contact</a>
             </li>
           </ul>
         </div>
