@@ -1,6 +1,13 @@
-<?php $title = 'portfolio'; ?>
+<?php $title = 'portfolio';
+      $colorHead='headblack';
+      $colorTransiD='transidownblack';
+      $colorTransiU='transiupblack';
+      $colorFooter='footerblack';
+      $navColor='navbar-dark';
+      $dropProject = dropProject();
 
-<?php ob_start(); ?>
+
+ ob_start(); ?>
 <div class="bodywhite container-fluid d-flex align-items-center justify-content-center " >
 
 

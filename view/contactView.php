@@ -1,4 +1,11 @@
-<?php $title = 'Contact'; ?>
+<?php $title = 'Contact';
+      $colorHead='headwhite';
+      $colorTransiD='transidownwhite';
+      $colorTransiU='transiupwhite';
+      $colorFooter='footerwhite';
+      $navColor='navbar-light';
+      $dropProject = dropProject(); ?>
+
 
 <?php ob_start(); ?>
 

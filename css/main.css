@@ -62,6 +62,10 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   background-size: cover;
   min-height: 25vh;
   max-height: 100%;
+  color: white;
+}
+#headblack .dropdown-item{
+  color: white;
 }
 #headwhite{
   background-image: url(../img/BGwhite.jpg);
@@ -70,6 +74,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   background-size: cover;
   min-height: 25vh;
   max-height: 100%;
+  color: black;
 }
 #footerblack{
   background-image: url(../img/BGblack.jpg);
@@ -78,6 +83,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   background-size: cover;
   min-height: 15vh;
   max-height: 100%;
+  color: white;
 }
 #footerwhite{
   background-image: url(../img/BGwhite.jpg);
@@ -86,6 +92,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   background-size: cover;
   min-height: 15vh;
   max-height: 100%;
+  color: black;
 }
 .bodywhite{
   background-image: url(../img/BGwhite.jpg);

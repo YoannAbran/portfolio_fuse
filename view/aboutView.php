@@ -1,4 +1,10 @@
-<?php $title = 'A propos' ;?>
+<?php $title = 'About';
+      $colorHead='headwhite';
+      $colorTransiD='transidownwhite';
+      $colorTransiU='transiupwhite';
+      $colorFooter='footerwhite';
+      $navColor='navbar-light';
+      $dropProject = dropProject();?>
 
 <?php ob_start(); ?>
 <div class="bodyblack justify-content-center text-light">

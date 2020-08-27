@@ -1,4 +1,10 @@
-<?php $title = $row['titre']; ?>
+<?php $title = $row['titre'];
+$colorHead='headwhite';
+$colorTransiD='transidownwhite';
+$colorTransiU='transiupwhite';
+$colorFooter='footerwhite';
+$navColor='navbar-light';
+$dropProject = dropProject(); ?>
 
 <?php ob_start(); ?>
 <div class="bodyblack text-light pt-4">
