@@ -19,7 +19,7 @@ if (isset($_POST["user"]) && isset($_POST["password"])) {
         $_SESSION['isAdmin'] = true;
         $_SESSION['authUser'] = $user;
         $_SESSION['id'] = $result[1];
-        header('Location: fonctions/connexion.php');
+        header('Location: model/connexion.php');
         exit;
     }
 }

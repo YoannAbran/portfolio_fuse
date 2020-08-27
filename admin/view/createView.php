@@ -1,9 +1,9 @@
 <?php
-  include "include/headwhiteadmin.php";
+  ob_start();
 ?>
 <div class="bodyblack text-center">
 
-<form  class="text-light" method='post' action='fonctions/insertnew.php' enctype='multipart/form-data'>
+<form  class="text-light" method='post' action='index.php?insertnew' enctype='multipart/form-data'>
     <h1 class="gold p-4">Titre</h1>
         <input type="text" name="titre" value="titre">
 
@@ -18,5 +18,6 @@
 </div>
 
 <?php
-  include "include/footerwhiteadmin.php";
+$content = ob_get_clean();
+ require('view/template.php');
  ?>

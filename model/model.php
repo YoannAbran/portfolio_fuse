@@ -14,6 +14,7 @@ function about(){
   $about = $sql->fetch();
   return $about;
 }
+
 function getProject($id){
     $conn = dbConnect();
   $sql = $conn->prepare("SELECT projet.titre, projet.description, images.id_image, images.image, images.idprojet
@@ -24,6 +25,7 @@ function getProject($id){
   $project = $sql->fetchAll();
   return $project;
 }
+
 function getAllProjects(){
   $conn = dbConnect();
   $sql = $conn->prepare("SELECT projet.titre, projet.description, projet.id_projet, images.id_image, images.image, images.idprojet
@@ -35,6 +37,7 @@ function getAllProjects(){
   $allProjects = $sql->fetchAll();
   return $allProjects;
 }
+
 function sendMail(){
   if (!isset($_POST["nom"]) && !isset($_POST["email"]) && !isset($_POST["message"])){
   }
@@ -64,10 +67,8 @@ function sendMail(){
                   }
           else {
             echo "erreur";
-
           }
   }
-
 }
 
 function dbConnect()
@@ -81,7 +82,7 @@ try {
   $conn = new PDO("mysql:host=$servername;port=3306;dbname=$dbname", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- return $conn;
+  return $conn;
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }

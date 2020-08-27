@@ -1,10 +1,8 @@
 <?php
-  include "include/headwhiteadmin.php";
-  include "fonctions/edit.php";
-
-
-
-
+  ob_start();
+  foreach ($texts as $text) {
+  }
+  $id=$_GET['id'];
 ?>
 
 <div class="bodyblack text-light pt-4">
@@ -13,7 +11,7 @@
 
   <div class=" container d-flex flex-column align-items-center bgabout">
 
-    <form  action ="" class="p-5 text-center text-dark" method="post" id="formedit">
+    <form  action ="index.php?action=edit&id=<?php echo $id ?>" class="p-5 text-center text-dark" method="post" id="formedit">
       <div class="p-2">
         <input type="text" name="titreedit" value="<?php echo htmlspecialchars($text['titre']) ?>" size="50">
       </div>
@@ -34,7 +32,7 @@ foreach ($imgs as $img) {
 
   echo"<div class='form-check d-flex flex-column align-items-center col-3'>
   <img class='py-3 col' src='../".$img['image']."' alt=''>
-  <form action ='fonctions/editdelete.php?imgdel=".$img['id_image']."&id=".$id."' method='post' name='delimg' onsubmit='return submitResult();'><input type='submit' value='Supprimer' name='delimg'></form>
+  <form action ='index.php?action=deleteimg&imgdel=".$img['id_image']."&id=".$id."' method='post' name='delimg' onsubmit='return submitResult();'><input type='submit' value='Supprimer' name='delimg'></form>
 
 </div>";
 
@@ -46,8 +44,8 @@ foreach ($imgs as $img) {
 </div>
 
 <div class="">
-  <form action="<?php echo "fonctions/editimg.php?id=".$id.""; ?>"  method="post" enctype='multipart/form-data'>
-    <input type='file' name='images[]' multiple />
+  <form action="<?php echo "index.php?action=edit&id=".$id.""; ?>"  method="post" enctype='multipart/form-data'>
+    <input type='file' name='files[]' multiple />
     <button  class="m-4" type="submit" value="Submit" name="editimg">modif</button>
   </form>
 
@@ -59,16 +57,7 @@ foreach ($imgs as $img) {
   </div>
 </div>
 
-<script>
-function submitResult() {
-   if ( confirm("Etes vous sur de vouloir effacer ce fichier?") == false ) {
-      return false ;
-   } else {
-      return true ;
-   }
-}
-</script>
-
 <?php
-  include "include/footerwhiteadmin.php";
+$content = ob_get_clean();
+ require('view/template.php');
   ?>

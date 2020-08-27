@@ -1,12 +1,12 @@
 @font-face {
   font-family: "MajorMonoDisplay";
-  src: url("../fonts/MajorMonoDisplay-Regular.ttf") format("truetype");
+  src: url("../../fonts/MajorMonoDisplay-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Roboto-regular";
-  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  src: url("../../fonts/Roboto-Regular.ttf") format("truetype");
   font-family: "Roboto-black";
-  src: url("../fonts/Roboto-Black.ttf") format("truetype");
+  src: url("../../fonts/Roboto-Black.ttf") format("truetype");
 }
 body{
   font-family: "Roboto-black";
@@ -56,7 +56,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
 }
 
 #headblack{
-  background-image: url(../img/BGblack.jpg);
+  background-image: url(../../img/BGblack.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -64,7 +64,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   max-height: 100%;
 }
 #headwhite{
-  background-image: url(../img/BGwhite.jpg);
+  background-image: url(../../img/BGwhite.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -72,7 +72,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   max-height: 100%;
 }
 #footerblack{
-  background-image: url(../img/BGblack.jpg);
+  background-image: url(../../img/BGblack.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -80,7 +80,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   max-height: 100%;
 }
 #footerwhite{
-  background-image: url(../img/BGwhite.jpg);
+  background-image: url(../../img/BGwhite.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -88,7 +88,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   max-height: 100%;
 }
 .bodywhite{
-  background-image: url(../img/BGwhite.jpg);
+  background-image: url(../../img/BGwhite.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -96,7 +96,7 @@ background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(179,179,179,1) 32%, 
   max-height: 100%;
 }
 .bodyblack{
-  background-image: url(../img/BGblack.jpg);
+  background-image: url(../../img/BGblack.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
