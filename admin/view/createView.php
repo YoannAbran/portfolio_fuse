@@ -3,7 +3,7 @@
 ?>
 <div class="bodyblack text-center">
 
-<form  class="text-light" method='post' action='index.php?insertnew' enctype='multipart/form-data'>
+<form  class='text-light' action='index.php?action=insertnew' method='POST' enctype='multipart/form-data' >
     <h1 class="gold p-4">Titre</h1>
         <input type="text" name="titre" value="titre">
 

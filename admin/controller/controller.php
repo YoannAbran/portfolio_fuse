@@ -10,17 +10,6 @@ $aboutText = aboutText();
 require("view/aboutView.php");
 }
 
-function create(){
-
-  if(isset($_POST['submit'])){
-    $add = insertnew($_POST['submit']);
-    $addimg = addimg();
-}
-
-  require("view/createView.php");
-
-}
-
 function edit(){
   if (isset($_GET['id']) && $_GET['id'] > 0) {
     if(isset($_POST['submit'])){
@@ -37,17 +26,26 @@ function edit(){
 
 
 function deleteControl(){
-    if (isset($_GET['id']) && $_GET['id'] > 0) {
-      $del = delete($_GET['id']);
-
+    if (isset($_GET['idel'])) {
+      $del = delete($_GET['idel']);
     }
+    header('Location: index.php');
+    exit;
   }
   function deleteimgControl(){
-    if (isset($_GET['idimg']) && $_GET['idimg'] > 0) {
-      $delimg = deleteImg($_GET['idimg']);
+    if (isset($_GET['imgdel']) && $_GET['imgdel'] > 0) {
+      $delimg = deleteImg($_GET['imgdel']);
+      $id=$_GET['id'];
       header('Location: index.php?action=edit&id=' . $id);
     }
 }
+
+function create($titre, $description){
+    $addnew = addnew($titre, $description);
+    header('Location: index.php');
+    exit;
+}
+
 function viewIndex(){
   $rows = selectAll();
   require("view/indexView.php");

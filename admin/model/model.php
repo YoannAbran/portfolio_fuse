@@ -50,16 +50,17 @@ return $aboutText;
 }
 
 function delete($id){
-
   $conn = dbConnect();
-  $del = prepare("DELETE FROM projet WHERE id_projet = $id");
-  $conn->execute($del);
+  $sql = $conn-> prepare("DELETE FROM projet WHERE id_projet = $id");
+  $del = $sql->execute();
+  return $del;
 }
 
 function deleteImg($idimg){
   $conn = dbConnect();
   $delimg = $conn-> prepare("DELETE FROM images WHERE id_image = $idimg");
   $delimg->execute();
+  return $delimg;
 }
 
 function editup($id, $titredit, $descredit){
@@ -91,12 +92,14 @@ $conn = dbConnect();
   return $texts;
 }
 
-function addimg(){
+function addnew($titre, $description){
     $conn = dbConnect();
+    $add = $conn->prepare( "INSERT INTO projet (titre, description) VALUES (:titre, :description)");
+    $addnew = $add->execute(array(':titre'=>$titre, ':description'=>$description));
     $countfiles = count($_FILES['files']['name']);
    // Prepared statement
-    $query = "INSERT INTO images (name,image,idprojet) VALUES(?,?,?)";
-    $addimg = $conn->prepare($query);
+    $query = "INSERT INTO images (name,image,idprojet) VALUES(?,?,LAST_INSERT_ID())";
+    $addnew = $conn->prepare($query);
    // Loop all files
     for($i=0;$i<$countfiles;$i++){
      // File name
@@ -111,25 +114,16 @@ function addimg(){
 
      if(in_array($file_extension, $valid_extension)){
         // Upload file
-        if(move_uploaded_file($_FILES['images']['tmp_name'][$i],'../../'.$target_file)){
+        if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'../'.$target_file)){
            // Execute query
- 	  $addimg->execute(array($filename,$target_file,$id));
+ 	  $addnew->execute(array($filename,$target_file));
   }
 }
-    return $addimg;
-}
-}
-function insertnew($titre,$descrition){
-  $conn = dbConnect();
-  $add = $conn->prepare( "INSERT INTO projet (titre,description) VALUES (:titre,:description)");
-  $add->execute(array(
-              ':titre' => $titre,
-              ':description' => $description,
-            ));
+return $addnew;
 
-$last_id = $conn->lastInsertId();
-return $add;
 }
+}
+
 
 function dbConnect()
 {

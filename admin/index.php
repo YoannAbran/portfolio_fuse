@@ -3,23 +3,41 @@ require('controller/controller.php');
 
 if (isset($_GET['action'])) {
   if ($_GET['action'] == 'create') {
-    create();
+    require("view/createView.php");
   }
-  }
-else if (isset($_GET['action'])) {
-  if ($_GET['action'] == 'about') {
+
+else if ($_GET['action'] == 'about') {
     about();
   }
-}
 
-else if (isset($_GET['action'])) {
-  if ($_GET['action'] == 'edit') {
+else if ($_GET['action'] == 'edit') {
     edit();
   }
+
+else if ($_GET['action'] == 'deleteimg') {
+  if (isset($_GET['imgdel'])) {
+  deleteimgControl();
 }
-else if (isset($_GET['action'])) {
-  if ($_GET['action'] == 'deleteimg') {
-    deleteimgControl();
+else {echo"bad news";
+    }
+  }
+
+else if ($_GET['action'] == 'delete') {
+  if (isset($_POST['suppr'])) {
+    if (isset($_GET['idel'])) {
+    deleteControl();
+  }
+  else {echo"bad news";
+}
+  }
+  else {echo"bad news";
+}
+}
+
+else if ($_GET['action'] == 'insertnew') {
+if (isset($_POST['submit'])) {
+    create($_POST['titre'], $_POST['description']);
+    }
   }
 }
 
