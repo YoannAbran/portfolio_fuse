@@ -1,12 +1,22 @@
 <?php
   require("model/model.php");
+  function isAdmin(){
+  session_start();
+    if ($_SESSION['isAdmin']) {
+        echo "Welcome " . $_SESSION['authUser'];
 
-// function aboutControl(){
-//   if (isset($_POST['descriptionedit']) && isset($_POST['coordedit'])) {
-//     extract($_POST);
-//     $aboutup = aboutup();
-// }
-// }
+    }
+    else {
+        echo "Get out you're not authorized";
+        header('Location: index.php?action=login');
+        exit;
+    }
+  }
+function loginCO(){
+  if (isset($_POST["user"]) && isset($_POST["password"])){
+  login($_POST["user"],$_POST["password"]);
+}
+}
 function about(){
 if (isset($_POST['descriptionedit']) && isset($_POST['coordedit'])) {
   $aboutup = aboutup($_POST['descriptionedit'],$_POST['coordedit'],$_POST['photo']);
@@ -22,15 +32,10 @@ function edit(){
     if(isset($_POST['edit'])){
       $edit = editup($_GET['id'],$_POST['titreedit'],$_POST['descredit']);
     }
-    else {
-      echo"badnews submit";
-    }
+
     $imgs = viewimg($_GET['id']);
     $texts = edittext($_GET['id']);
     require('view/editView.php');
-  }
-  else {
-    echo"badnews GET";
   }
 }
 

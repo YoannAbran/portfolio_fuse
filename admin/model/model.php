@@ -153,10 +153,32 @@ function addnew($titre, $description){
   }
 }
 return $addnew;
+  }
+}
 
+function login($user,$password){
+$conn = dbConnect();
+session_start();
+
+    $sql = "SELECT password, id FROM admin WHERE user = :user";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(':user', $user);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    $isValid = password_verify($password, $result[0]);
+
+    if ($isValid) {
+        $_SESSION['isAdmin'] = true;
+        $_SESSION['authUser'] = $user;
+        $_SESSION['id'] = $result[1];
+        echo "Welcome " . $_SESSION['authUser'];
+        header('Location:index.php');
+        exit;
+    }
+else{
+  echo "Get out you're not authorized";
 }
 }
-
 
 function dbConnect()
 {

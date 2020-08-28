@@ -3,49 +3,56 @@ require('controller/controller.php');
 
 if (isset($_GET['action'])) {
   if ($_GET['action'] == 'create') {
+    isAdmin();
     require("view/createView.php");
   }
 
+elseif ($_GET['action'] == 'login') {
+
+  loginCO();
+  require("view/loginView.php");
+}
 else if ($_GET['action'] == 'about') {
+  isAdmin();
     about();
     aboutView();
   }
-  
+
 else if ($_GET['action'] == 'aboutView') {
+  isAdmin();
     aboutView();
   }
 
 else if ($_GET['action'] == 'edit') {
+isAdmin();
     edit();
   }
 
 else if ($_GET['action'] == 'deleteimg') {
   if (isset($_GET['imgdel'])) {
+isAdmin();
   deleteimgControl();
-}
-else {echo"bad news";
-    }
   }
+}
 
 else if ($_GET['action'] == 'delete') {
   if (isset($_POST['suppr'])) {
     if (isset($_GET['idel'])) {
+      isAdmin();
     deleteControl();
+    }
   }
-  else {echo"bad news";
-}
-  }
-  else {echo"bad news";
-}
 }
 
 else if ($_GET['action'] == 'insertnew') {
 if (isset($_POST['submit'])) {
+  isAdmin();
     create($_POST['titre'], $_POST['description']);
     }
   }
 }
 
 else{
+  isAdmin();
   viewIndex();
 }
