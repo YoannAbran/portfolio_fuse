@@ -8,6 +8,11 @@ if (isset($_GET['action'])) {
 
 else if ($_GET['action'] == 'about') {
     about();
+    aboutView();
+  }
+  
+else if ($_GET['action'] == 'aboutView') {
+    aboutView();
   }
 
 else if ($_GET['action'] == 'edit') {

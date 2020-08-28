@@ -10,9 +10,9 @@
 
 
   <img src="<?php echo $aboutText['photo'] ?>" alt="">
-    <form id="aboutedit" class="text-center text-dark" action=""  method="post" enctype='multipart/form-data'>
-      <input type='file' name='photo' />
-
+    <form id="aboutedit" class="text-center text-dark" action="index.php?action=about"  method="post" enctype='multipart/form-data'>
+      <input type='file' name='newphoto' />
+<input type="hidden" name="photo" value='<?php echo "".$aboutText['photo']."" ?>'>
     <textarea class="" name="descriptionedit"><?php echo htmlspecialchars($aboutText['description']) ?></textarea>
 
     <textarea name="coordedit" class = ""><?php echo htmlspecialchars($aboutText['coordonnee']) ?></textarea>

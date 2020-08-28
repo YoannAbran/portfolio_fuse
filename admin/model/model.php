@@ -18,9 +18,11 @@ function dropProject(){
   return $dropProject;
 }
 
-function aboutup(){
+function aboutup($descriptionedit,$coordedit,$image){
   $conn = dbConnect();
-  $filename = $_FILES['photo']['name'];
+  $sql = $conn->prepare("UPDATE about SET photo = :photo, description = :desription, coordonnee = :coordonnee");
+  if (!empty($_FILES['newphoto']['name'])){
+  $filename = $_FILES['newphoto']['name'];
   // Location
   $target_file = '../img/'.$filename;
   // file extension
@@ -30,15 +32,21 @@ function aboutup(){
   $valid_extension = array("png","jpeg","jpg","PNG");
   if(in_array($file_extension, $valid_extension)){
      // Upload file
-     if(move_uploaded_file($_FILES['photo']['tmp_name'],$target_file)){
-$aboutup = $conn->prepare("UPDATE about SET photo = :photo, description = :desription, coordonnee = :coordonnee");
-$aboutup->bindParam(':photo',$target_file);
-$aboutup->bindParam(':desription',$descriptionedit);
-$aboutup->bindParam(':coordonnee',$coordedit);
-$aboutup->execute();
-}
-}
-return $aboutimg;
+     if(move_uploaded_file($_FILES['newphoto']['tmp_name'],$target_file)){
+     }
+     }
+   }
+   else {
+     $target_file = $image ;
+   }
+
+$sql->bindParam(':photo',$target_file);
+$sql->bindParam(':desription',$descriptionedit);
+$sql->bindParam(':coordonnee',$coordedit);
+$aboutup = $sql->execute();
+
+return $aboutup;
+
 }
 
 function aboutText(){
@@ -65,11 +73,36 @@ function deleteImg($idimg){
 
 function editup($id, $titredit, $descredit){
   $conn = dbConnect();
-  $edit = $conn->prepare("UPDATE projet SET titre = :titre, description = :desription WHERE id_projet= $id ");
-  $edit->bindParam(':titre',$titredit);
-  $edit->bindParam(':desription',$descredit);
-  $edit->execute();
+  $sql = $conn->prepare("UPDATE projet SET titre = :titre, description = :desription WHERE id_projet= $id ");
+  $sql->bindParam(':titre',$titredit);
+  $sql->bindParam(':desription',$descredit);
+  $edit = $sql->execute();
+  $countfiles = count($_FILES['files']['name']);
+ // Prepared statement
+  $sql = $conn -> prepare("INSERT INTO images (name,image,idprojet) VALUES(?,?,?)");
+
+ // Loop all files
+  for($i=0;$i<$countfiles;$i++){
+   // File name
+   $filename = $_FILES['files']['name'][$i];
+   // Location
+   $target_file = 'img/'.$filename;
+   // file extension
+   $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
+   $file_extension = strtolower($file_extension);
+   // Valid image extension
+   $valid_extension = array("png","jpeg","jpg","PNG");
+
+   if(in_array($file_extension, $valid_extension)){
+      // Upload file
+      if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'../'.$target_file)){
+         // Execute query
+
+  $edit=$sql->execute(array($filename,$target_file,$id));
+}
+}
   return $edit;
+}
 }
 
 function viewimg($id){

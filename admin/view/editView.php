@@ -11,15 +11,17 @@
 
   <div class=" container d-flex flex-column align-items-center bgabout">
 
-    <form  action ="index.php?action=edit&id=<?php echo $id ?>" class="p-5 text-center text-dark" method="post" id="formedit">
+    <form  action ="index.php?action=edit&id=<?php echo $id ?>" class="p-5 text-center text-dark" method="post" enctype='multipart/form-data' id="formedit">
       <div class="p-2">
         <input type="text" name="titreedit" value="<?php echo htmlspecialchars($text['titre']) ?>" size="50">
       </div>
       <div class="p-2">
         <textarea name="descredit" id="descredit" rows="8" cols="100" ><?php echo  htmlspecialchars($text['description']) ?></textarea>
       </div>
+
+      <input type='file' name='files[]' multiple />
       <div class="p-2">
-        <input class="btn" type="submit" value="Submit">
+        <input class="btn" type="submit" name="edit" value="Submit">
       </div>
         </form>
 
@@ -43,13 +45,13 @@ foreach ($imgs as $img) {
 
 </div>
 
-<div class="">
+<!-- <div class="">
   <form action="<?php echo "index.php?action=edit&id=".$id.""; ?>"  method="post" enctype='multipart/form-data'>
     <input type='file' name='files[]' multiple />
     <button  class="m-4" type="submit" value="Submit" name="editimg">modif</button>
   </form>
 
-</div>
+</div> -->
 
 
 
