@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/projet-carou.css">
 </head>
+<?php $projectManager = new ProjectManager;
+      $dropProject = $projectManager->dropProject();
+ ?>
 <body >
   <header id="<?php echo $colorHead ?>" class="container-fluid ">
     <div class=" container d-flex justify-content-between">

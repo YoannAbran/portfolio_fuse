@@ -1,32 +1,36 @@
 <?php
-  require("model/model.php");
+require_once("model/AboutManager.php");
+require_once("model/ProjectManager.php");
+require_once("model/MailManager.php");
 
 function aboutControl(){
-  $about = about();
+  $aboutManager = new AboutManager();
+  $about = $aboutManager->about();
   require("view/aboutView.php");
 }
-function contact(){
-  sendMail();
-  require("view/contactView.php");
-}
+
 function projects(){
-  $allProjects = getAllProjects();
+  $projectManager = new ProjectManager;
+  $allProjects= $projectManager->getAllProjects();
   require("view/projetsView.php");
 }
+
 function project(){
-  if (isset($_GET['id']) && $_GET['id'] > 0) {
-      $project = getProject($_GET['id']);
-      foreach ($project as $row) {
-      }
-      require('view/projetView.php');
+  if (isset($_GET['id']) && $_GET['id'] > 0){
+    $projectManager = new ProjectManager;
+    $project = $projectManager->getProject($_GET['id']);
+    foreach ($project as $row) {
+    }
+    require('view/projetView.php');
   }
   else {
       echo 'Erreur : aucun projet trouvé';
   }
 }
-function valid_donnees($donnees){
-    $donnees = trim($donnees);
-    $donnees = stripslashes($donnees);
-    $donnees = htmlspecialchars($donnees);
-    return $donnees;
+function contact(){
+  $mailManager = new MailManager();
+  $contact = $mailManager->sendMail();
+  require("view/contactView.php");
 }
+
+ ?>

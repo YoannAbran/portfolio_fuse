@@ -4,7 +4,7 @@
       $colorTransiU='transiupwhite';
       $colorFooter='footerwhite';
       $navColor='navbar-light';
-      $dropProject = dropProject(); ?>
+      // $dropProject = dropProject(); ?>
 
 
 <?php ob_start(); ?>

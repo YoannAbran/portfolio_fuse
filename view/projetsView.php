@@ -4,7 +4,7 @@ $colorTransiD='transidownwhite';
 $colorTransiU='transiupwhite';
 $colorFooter='footerwhite';
 $navColor='navbar-light';
-$dropProject = dropProject(); ?>
+// $dropProject = dropProject(); ?>
 
 <?php ob_start(); ?>
 <div class="bodyblack containeur-fluid d-flex flex-column align-items-center">
