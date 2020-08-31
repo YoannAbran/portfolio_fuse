@@ -35,8 +35,7 @@ $dropProject = $indexManager->dropProject();  ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projets</a>
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="index.php?action=projet">Accueil Projets</a>
-
+        
               <?php foreach ($dropProject as $row){
                 echo "<a class='dropdown-item' href='index.php?action=edit&id=".$row['id_projet']."'>".$row['titre']."</a>";
               } ?>

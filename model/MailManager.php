@@ -1,4 +1,5 @@
 <?php
+
 class MailManager
 {
   public function sendMail(){
