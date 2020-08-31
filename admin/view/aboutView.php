@@ -11,13 +11,16 @@
 
   <img src="<?php echo $aboutText['photo'] ?>" alt="">
     <form id="aboutedit" class="text-center text-dark" action="index.php?action=about"  method="post" enctype='multipart/form-data'>
-      <input type='file' name='newphoto' />
-<input type="hidden" name="photo" value='<?php echo "".$aboutText['photo']."" ?>'>
-    <textarea class="" name="descriptionedit"><?php echo htmlspecialchars($aboutText['description']) ?></textarea>
+      <div>
+        <input type='file' name='newphoto' />
+        <input type="hidden" name="photo" value='<?php echo "".$aboutText['photo']."" ?>'>
+      </div>
 
-    <textarea name="coordedit" class = ""><?php echo htmlspecialchars($aboutText['coordonnee']) ?></textarea>
+    <div><textarea class="p-2" name="descriptionedit" rows="8" cols="100"><?php echo htmlspecialchars($aboutText['description']) ?></textarea></div>
 
-    <input class="btn" type="submit" value="Submit" >
+    <div><textarea name="coordedit" class = "p-2" rows="8" cols="100"><?php echo htmlspecialchars($aboutText['coordonnee']) ?></textarea></div>
+
+    <div><input class="btn" type="submit" value="Submit" ></div>
   </form>
 
   <div class="">

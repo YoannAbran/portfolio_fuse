@@ -51,7 +51,7 @@
   </nav>
   </div>
   <div class="d-flex flex-column text-dark col-6">
-    <h1 class="align-self-end p-4" id="logo"><span id='logoy'>Y</span><a id="logoa" href="controller/deco.php">A</a></h1>
+    <h1 class="align-self-end p-4" id="logo"><span id='logoy'>Y</span><a id="logoa" href="index.php?action=deco">A</a></h1>
     <h2 class=" d-none d-lg-block align-self-end pl-4"><span class="gold">Portfolio</span> Yoann Abran</h2>
   </div>
   </div>

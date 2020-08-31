@@ -1,6 +1,7 @@
 <?php
   require("model/model.php");
-  function isAdmin(){
+
+function isAdmin(){
   session_start();
     if ($_SESSION['isAdmin']) {
         echo "Welcome " . $_SESSION['authUser'];
@@ -12,10 +13,25 @@
         exit;
     }
   }
+
 function loginCO(){
   if (isset($_POST["user"]) && isset($_POST["password"])){
   login($_POST["user"],$_POST["password"]);
 }
+}
+function deco(){
+  session_start();
+
+  // Suppression des variables de session et de la session
+  $_SESSION = array();
+  session_destroy();
+
+  // Suppression des cookies de connexion automatique
+  setcookie('login', '');
+  setcookie('pass_hache', '');
+
+  header('Location: ../index.php');
+  exit;
 }
 function about(){
 if (isset($_POST['descriptionedit']) && isset($_POST['coordedit'])) {
@@ -23,10 +39,12 @@ if (isset($_POST['descriptionedit']) && isset($_POST['coordedit'])) {
 
 }
 }
+
 function aboutView(){
 $aboutText = aboutText();
 require("view/aboutView.php");
 }
+
 function edit(){
   if (isset($_GET['id']) && $_GET['id'] > 0) {
     if(isset($_POST['edit'])){
@@ -47,7 +65,7 @@ function deleteControl(){
     exit;
   }
 
-  function deleteimgControl(){
+function deleteimgControl(){
     if (isset($_GET['imgdel']) && $_GET['imgdel'] > 0) {
       $delimg = deleteImg($_GET['imgdel']);
       $id=$_GET['id'];
