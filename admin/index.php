@@ -3,34 +3,34 @@ require('controller/controller.php');
 
 if (isset($_GET['action'])) {
   if ($_GET['action'] == 'create') {
-    isAdmin();
+    Admin();
     require("view/createView.php");
   }
 
 else if ($_GET['action'] == 'login') {
-  loginCO();
+  loginConnexion();
   require("view/loginView.php");
 }
 
 else if ($_GET['action'] == 'about') {
-    isAdmin();
+    Admin();
     about();
     aboutView();
   }
 
 else if ($_GET['action'] == 'aboutView') {
-    isAdmin();
+    Admin();
     aboutView();
   }
 
 else if ($_GET['action'] == 'edit') {
-    isAdmin();
+    Admin();
     edit();
   }
 
 else if ($_GET['action'] == 'deleteimg') {
   if (isset($_GET['imgdel'])) {
-    isAdmin();
+    Admin();
     deleteimgControl();
   }
 }
@@ -38,7 +38,7 @@ else if ($_GET['action'] == 'deleteimg') {
 else if ($_GET['action'] == 'delete') {
   if (isset($_POST['suppr'])) {
     if (isset($_GET['idel'])) {
-      isAdmin();
+      Admin();
       deleteControl();
     }
   }
@@ -46,18 +46,19 @@ else if ($_GET['action'] == 'delete') {
 
 else if ($_GET['action'] == 'insertnew') {
 if (isset($_POST['submit'])) {
-    isAdmin();
+    Admin();
     create($_POST['titre'], $_POST['description']);
     }
   }
 
 
 else if ($_GET['action'] == 'deco') {
-  isAdmin();
-  deco();
+  // Admin();
+  deconnexion();
   }
 }
+
 else{
-  isAdmin();
+  Admin();
   viewIndex();
 }

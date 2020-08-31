@@ -1,4 +1,5 @@
-<?php $dropProject=dropProject()  ?>
+<?php $indexManager = new IndexManager;
+$dropProject = $indexManager->dropProject();  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
