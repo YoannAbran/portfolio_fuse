@@ -5,12 +5,6 @@ function chargerClasse($classe)
 }
 spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelée dès qu'on instanciera une classe non déclarée.
 
-function aboutControl(){
-  $aboutManager = new AboutManager();
-  $about = $aboutManager->about();
-  require("view/aboutView.php");
-}
-
 function projects(){
   $projectManager = new ProjectManager;
   $allProjects= $projectManager->getAllProjects();

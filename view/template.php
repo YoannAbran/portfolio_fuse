@@ -44,9 +44,6 @@
                 </div>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link " href="index.php?action=about">Moi</a>
-              </li>
-              <li class="nav-item active">
                  <a class="nav-link " href="index.php?action=contact">Contact</a>
               </li>
             </ul>
@@ -67,9 +64,10 @@
   <div class=" d-flex justify-content-center" id="<?php echo $colorFooter?>">
     <div class="container d-flex justify-content-between row ">
     <div class="col">
-    <h3 class = " gold m-0">Contact</h3>
-    <p class = "m-0">Email : yoXXXX@XXXXX.fr</p>
-    <p class = "m-0">Mobile : 06-XX-XX-XX-XX</p>
+    <h3 class = " gold m-0">Coordonnée</h3>
+    <!--creer une table pour la modif des coordonnées tel mail adresse reseau sociaux (linkdin github)-->
+    <p class = "m-0">Email : yoan586@yahoo.fr</p>
+    <p class = "m-0">Mobile : 06-22-50-56-29</p>
     <div class="d-flex justify-content-around col-4 h2">
     <a class = "gold m-0" href="#"><i class="fab fa-linkedin"></i></a>
     <a class = "gold m-0" href="#"><i class="fab fa-github"></i></a>

@@ -1,3 +1,5 @@
+
+<!-- a supprimer une fois les info directement sur le carou -->
 <?php $title = $row['titre'];
 $colorHead='headwhite';
 $colorTransiD='transidownwhite';

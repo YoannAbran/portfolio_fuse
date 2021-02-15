@@ -12,7 +12,7 @@ class MailManager
 
             if (isset($nom) && strlen($nom) <= 20 && preg_match("#^[A-Za-z '-]+$#",$nom) && isset($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && isset($message)){
 
-    $to = "y.abran@codeur.online";
+    $to = "y.abran@codeur.online";//recuperer adresse mail dans la bdd
     $headers = 'From:'.$nom.'<'.$email.'>';
 
     $subject = "Message de ".$nom."";
@@ -27,7 +27,6 @@ class MailManager
                 else {
                     echo "Échec de l'envoi de l'email...";
                   }
-
                     }
             else {
               echo "erreur";

@@ -9,7 +9,8 @@ $navColor='navbar-light';
 <?php ob_start(); ?>
 <div class="bodyblack containeur-fluid d-flex flex-column align-items-center">
 
-
+<!-- essayer d'obtenir un carousel en récuperant les infos en bdd et non en dur comme la-->
+<!-- afficher les infos directement sur l'image du carou (desritpion lien) sans passer par une nouvele page -->
 <div class="carousel d-flex flex-column justify-content-center pt-4 pb-3">
 	<figure class="img-fluid">
 		<a href=""><img class="img-fluid" src="img/screenBarmy1.png" alt=""></a>
@@ -27,37 +28,37 @@ $navColor='navbar-light';
 
 
 <?php
-
-  foreach ($allProjects as $row){
-if (!empty($row['image'])){
-
-  echo "	<div class='col mb-4'>";
-  echo "<div class='card shadow-sm bgcard text-dark' >";
-  	echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
-  	echo "<div class='card-body d-flex flex-column justify-content-between'>";
-  		echo "<h5 class='card-title'>".$row['titre']."</h5>";
-  		echo "<a href='index.php?action=projet&id=".$row['id_projet']."' class='btn'>GO !!</a>";
-
-  	echo "</div>
-  </div>
-  </div>";
-
-}
-
-else{
-
-  echo "	<div class='col mb-4'>";
-  echo "<div class='card shadow-sm bgcard text-dark' >";
-    echo "<img src='img/projet.jpg' class='card-img-top' alt='...'>";
-    echo "<div class='card-body d-flex flex-column justify-content-between'>";
-      echo "<h5 class='card-title'>".$row['titre']."</h5>";
-      echo "<a href='index.php?action=projet&id=".$row['id_projet']."' class='btn'>GO !!</a>";
-
-    echo "</div>
-  </div>
-  </div>";
-}
-}
+// ne garde que le carousel pour l'affichage des projets
+//   foreach ($allProjects as $row){
+// if (!empty($row['image'])){
+//
+//   echo "	<div class='col mb-4'>";
+//   echo "<div class='card shadow-sm bgcard text-dark' >";
+//   	echo "<img src='".$row['image']."' class='card-img-top' alt='...'>";
+//   	echo "<div class='card-body d-flex flex-column justify-content-between'>";
+//   		echo "<h5 class='card-title'>".$row['titre']."</h5>";
+//   		echo "<a href='index.php?action=projet&id=".$row['id_projet']."' class='btn'>GO !!</a>";
+//
+//   	echo "</div>
+//   </div>
+//   </div>";
+//
+// }
+//
+// else{
+//
+//   echo "	<div class='col mb-4'>";
+//   echo "<div class='card shadow-sm bgcard text-dark' >";
+//     echo "<img src='img/projet.jpg' class='card-img-top' alt='...'>";
+//     echo "<div class='card-body d-flex flex-column justify-content-between'>";
+//       echo "<h5 class='card-title'>".$row['titre']."</h5>";
+//       echo "<a href='index.php?action=projet&id=".$row['id_projet']."' class='btn'>GO !!</a>";
+//
+//     echo "</div>
+//   </div>
+//   </div>";
+// }
+// }
 	 ?>
 
 
